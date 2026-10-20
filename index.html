@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adrián Barbudo López · Técnico de Sistemas, Redes y Ciberseguridad</title>
+<meta name="description" content="Portafolio de Adrián Barbudo López: administración de sistemas, redes Cisco, ciberseguridad y automatización.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eaeff3; --surface:#f7f9fb; --ink:#10202e; --muted:#4b5d6c; --line:#c5d0d9;
+  --accent:#1f4fd8; --accent-ink:#fff; --hl:#f2b705; --node:#10202e;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1720; --surface:#16232f; --ink:#e6edf3; --muted:#9bb0c0; --line:#2a3b4a;
+    --accent:#6f95ff; --accent-ink:#0e1720; --hl:#f2b705; --node:#e6edf3; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1720; --surface:#16232f; --ink:#e6edf3; --muted:#9bb0c0; --line:#2a3b4a;
+  --accent:#6f95ff; --accent-ink:#0e1720; --hl:#f2b705; --node:#e6edf3; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--hl);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.brand{font:800 1.05rem var(--head);color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0}
+nav{display:flex;gap:18px;align-items:center;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:.9rem}
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font:800 clamp(2.6rem,6vw,4.6rem)/1 var(--head);letter-spacing:-.02em;margin:0 0 20px}
+.hero .role{font:600 1.15rem var(--head);color:var(--accent);margin:0 0 16px}
+.hero p{color:var(--muted);max-width:52ch;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.topo{width:100%;height:auto}
+.topo .edge{stroke:var(--line);stroke-width:3}
+.topo .hot{stroke:var(--hl);stroke-width:3;stroke-dasharray:7 7}
+.topo .n{fill:var(--surface);stroke:var(--node);stroke-width:2.5}
+.topo text{fill:var(--ink);font:600 13px var(--body)}
+.topo .sub{fill:var(--muted);font-weight:400;font-size:11.5px}
+.topo .tag{fill:var(--hl)}
+.topo .tagt{fill:#10202e;font-size:11px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.7rem,3.5vw,2.3rem)/1.15 var(--head);letter-spacing:-.01em;margin:0 0 28px}
+h3{font:600 1.2rem var(--head);margin:0 0 6px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about p{margin:0 0 16px;max-width:62ch}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:12px;align-content:start}
+.facts li{background:var(--surface);border-left:4px solid var(--hl);padding:12px 16px;border-radius:0 10px 10px 0}
+.facts b{display:block;font-family:var(--head)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;width:100%}
+.skill:hover{border-color:var(--accent)}
+.skill .st{display:block;font:600 1.2rem var(--head);margin:0 0 6px}
+.skill .more{display:block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.92rem}
+.skill p{margin:0;color:var(--muted);font-size:.98rem}
+.skill .ic{font-size:1.5rem;display:block}
+.projects{display:grid;gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;grid-template-columns:1fr 240px;gap:24px}
+.proj p{margin:6px 0 0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-content:start;margin:0;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.86rem;background:var(--bg)}
+.proj a.more{display:inline-block;margin-top:10px;font-weight:600}
+.timeline{display:grid;gap:22px}
+.job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding-left:18px;border-left:4px solid var(--accent)}
+.job time{color:var(--muted);font-size:.95rem}
+.job ul{margin:10px 0 0;padding-left:20px;color:var(--muted)}
+.job li{margin-bottom:6px}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:36px}
+.edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.edu span{color:var(--muted);font-size:.95rem}
+.badges{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 28px;padding:0;list-style:none}
+.badges img{width:84px;height:84px;display:block}
+.badges p{margin:0;color:var(--muted);font-size:.95rem;max-width:30ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
+.filters button{font:inherit;font-size:.92rem;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit;overflow:hidden;display:flex;flex-direction:column}
+.cert:hover{border-color:var(--accent)}
+.cert img{width:100%;aspect-ratio:4/3;object-fit:contain;display:block;border-bottom:1px solid var(--line);background:var(--bg)}
+.cert .c{padding:14px 16px}
+.cert h4{margin:0 0 4px;font:600 1rem/1.3 var(--head)}
+.cert span{color:var(--muted);font-size:.88rem;display:block}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0;width:min(720px,94vw)}
+dialog::backdrop{background:rgba(8,14,20,.65)}
+.dlg{padding:22px}
+.dlg img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);margin:14px 0;display:block}
+.dlg p{margin:0 0 4px;color:var(--muted)}
+.dlg ul.bul{margin:12px 0;padding-left:20px;color:var(--muted)}
+.dlg ul.bul li{margin-bottom:6px}
+.dlg .chips{margin:14px 0}
+.dlg h4{margin:16px 0 0;font:600 1rem var(--head)}
+.dlg .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.dlg .row button{font:inherit;cursor:pointer;background:none}
+.empty{border:2px dashed var(--line);border-radius:12px;padding:22px;color:var(--muted);grid-column:1/-1}
+.contact p{max-width:58ch;color:var(--muted)}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (max-width:820px){
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:4px}
+  html{scroll-padding-top:110px}
+  header.nav .wrap{height:auto;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;gap:4px 16px}
+  nav{width:100%;padding-bottom:4px}
+}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#inicio">Adrián Barbudo López</a>
+  <nav aria-label="Principal">
+    <a href="#sobre-mi">Sobre mí</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a>
+    <a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+    <button id="theme" type="button" aria-label="Cambiar tema">Tema</button>
+  </nav>
+</div></header>
+
+<main id="inicio">
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Adrián Barbudo López</h1>
+    <p class="role">Técnico de Sistemas · Ciberseguridad · Redes · Automatización</p>
+    <p>Estudiante de ASIR que diseña infraestructuras desde cero, monta laboratorios de pentesting y automatiza la administración con scripts.</p>
+    <div class="btns">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn ghost" href="#contacto">Contactar</a>
+    </div>
+  </div>
+  <svg class="topo" viewBox="0 0 400 300" role="img" aria-label="Diagrama del laboratorio MitM: Kali Linux intercepta el tráfico entre Windows 10 y el router">
+    <line class="edge" x1="200" y1="60" x2="200" y2="140"/>
+    <line class="edge" x1="200" y1="60" x2="70" y2="230"/>
+    <line class="edge" x1="200" y1="60" x2="330" y2="230"/>
+    <line class="hot" x1="70" y1="230" x2="330" y2="230"/>
+    <g><rect class="n" x="140" y="20" width="120" height="50" rx="10"/><text x="200" y="44" text-anchor="middle">Kali Linux</text><text class="sub" x="200" y="60" text-anchor="middle">Bettercap</text></g>
+    <g><rect class="n" x="140" y="115" width="120" height="50" rx="10"/><text x="200" y="139" text-anchor="middle">Wireshark</text><text class="sub" x="200" y="155" text-anchor="middle">análisis</text></g>
+    <g><rect class="n" x="10" y="205" width="120" height="50" rx="10"/><text x="70" y="229" text-anchor="middle">Windows 10</text><text class="sub" x="70" y="245" text-anchor="middle">víctima</text></g>
+    <g><rect class="n" x="270" y="205" width="120" height="50" rx="10"/><text x="330" y="229" text-anchor="middle">Router</text><text class="sub" x="330" y="245" text-anchor="middle">VirtualBox</text></g>
+    <rect class="tag" x="152" y="262" width="96" height="22" rx="11"/><text class="tagt" x="200" y="277" text-anchor="middle">ARP spoofing</text>
+  </svg>
+</div></div>
+
+<section id="sobre-mi"><div class="wrap">
+  <h2>Sobre mí</h2>
+  <div class="about">
+    <div>
+      <p>Soy un profesional en formación continua. Curso el segundo año del Grado Superior en Administración de Sistemas Informáticos en Red (ASIR), con una base técnica sólida del Grado Medio en Sistemas Microinformáticos y Redes (SMR).</p>
+      <p>Mi perfil se orienta a la ciberseguridad y al hacking ético. Soy pragmático y analítico: me gusta resolver problemas complejos en la terminal y asegurar la robustez de las redes corporativas.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Ahora</b>2.º de ASIR</li>
+      <li><b>Enfoque</b>Ciberseguridad, hacking ético y redes Cisco</li>
+      <li><b>Certificados</b><span id="ccount"></span></li>
+      <li><b>Idiomas</b>Español nativo, inglés B2 (British Council)</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="habilidades"><div class="wrap">
+  <h2>Habilidades técnicas</h2>
+  <div class="skills" id="skills"></div>
+</div></section>
+
+<section id="proyectos"><div class="wrap">
+  <h2>Proyectos destacados</h2>
+  <div class="projects" id="projects"></div>
+</div></section>
+
+<section id="experiencia"><div class="wrap">
+  <h2>Experiencia profesional</h2>
+  <div class="timeline">
+    <article class="job">
+      <time>mar. 2025 – jun. 2025</time>
+      <div>
+        <h3>Soporte técnico y consultoría de ventas (prácticas)</h3>
+        <span>Solotech Madrid · Valdemoro, Comunidad de Madrid</span>
+        <ul>
+          <li>Diagnóstico y reparación de hardware en móviles, tablets y equipos informáticos.</li>
+          <li>Asesoramiento técnico sobre protección y periféricos para mejorar la experiencia y la vida útil de los dispositivos.</li>
+          <li>Control de inventario y de calidad en la recepción y selección de componentes.</li>
+          <li>Resolución de incidencias de software (S.O., aplicaciones) y hardware de consumo dentro de los tiempos de respuesta.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <time>oct. 2025 – nov. 2025</time>
+      <div>
+        <h3>Atención al cliente</h3>
+        <span>LevaduraMadre</span>
+        <ul><li>Refuerzo temporal por alta demanda: atención directa al público y gestión rápida de pedidos.</li></ul>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="formacion"><div class="wrap">
+  <h2>Formación y certificaciones</h2>
+  <div class="edu">
+    <div><h3>Técnico Superior en ASIR</h3><span>En curso</span></div>
+    <div><h3>Técnico en SMR</h3><span>Sistemas Microinformáticos y Redes</span></div>
+    <div><h3>Inglés B2</h3><span>British Council</span></div>
+    <div><h3>Permiso de conducir B</h3><span>Vigente</span></div>
+  </div>
+  <h3 id="certificados" style="margin-bottom:14px">Certificados</h3>
+  <ul class="badges">
+    <li><img src="certificados/img/badge-networking-basics.png" alt="Insignia verificada de Cisco: Networking Basics" width="84" height="84"></li>
+    <li><img src="certificados/img/badge-cybersecurity.png" alt="Insignia verificada de Cisco: Introduction to Cybersecurity" width="84" height="84"></li>
+    <li><img src="certificados/img/badge-modern-ai.png" alt="Insignia verificada de Cisco: Introduction to Modern AI" width="84" height="84"></li>
+    <li><p>Insignias verificadas de Cisco Networking Academy</p></li>
+  </ul>
+  <div class="filters" id="filters" role="group" aria-label="Filtrar certificados"></div>
+  <div class="certs" id="certs"></div>
+  <dialog id="dlg" aria-label="Detalle del certificado"><div class="dlg" id="dlgbody"></div></dialog>
+</div></section>
+
+<section id="contacto" class="contact"><div class="wrap">
+  <h2>Contacto</h2>
+  <p>Estoy abierto a nuevas oportunidades, a colaborar en proyectos de laboratorio y a puestos en remoto de ciberseguridad y administración de sistemas.</p>
+  <div class="links">
+    <a class="btn primary" href="mailto:abl211207@gmail.com">abl211207@gmail.com</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/adrián-barbudo-lópez-026053378" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="y"></span> Adrián Barbudo López</div></footer>
+
+<script>
+/* ====== EDITA AQUÍ: añade proyectos y certificados como objetos nuevos ====== */
+const SKILLS = [
+  {ic:"💻", t:"Administración de sistemas operativos", d:"Windows Server, GNU/Linux y gestión centralizada con Active Directory.",
+   b:["Despliegue, configuración y administración de entornos Windows Server y distribuciones GNU/Linux.","Gestión centralizada de usuarios y equipos con Active Directory.","Aplicación de políticas de grupo (GPO) para configurar y controlar los equipos del dominio."],
+   tech:["Windows Server","Active Directory","GPO","GNU/Linux"]},
+  {ic:"🌐", t:"Servicios de red e Internet", d:"Redes corporativas basadas en los estándares de Cisco CCNA.",
+   b:["Diseño e implementación de infraestructuras de red corporativas siguiendo los estándares CCNA.","Configuración de enrutamiento dinámico (OSPF, EIGRP) y de conmutación con VLANs.","Direccionamiento IPv4 e IPv6 y segmentación del tráfico entre varias sucursales simuladas.","Prácticas con Cisco Packet Tracer y cursos de Cisco Networking Academy."],
+   tech:["Cisco CCNA","OSPF","EIGRP","VLANs","IPv4/IPv6","Packet Tracer"],
+   rel:[["Ver proyecto de redes corporativas","#proyectos"],["Ver certificados de Cisco","#certificados"]]},
+  {ic:"🔐", t:"Seguridad y alta disponibilidad", d:"Seguridad física y lógica, redundancia y recuperación ante desastres.",
+   b:["Estrategias de seguridad física y lógica en entornos Microsoft.","Diseño de arquitecturas redundantes para mantener los servicios disponibles.","Planes de contingencia y recuperación ante desastres (Disaster Recovery).","Bastionado de sistemas."],
+   tech:["Alta disponibilidad","Disaster Recovery","Bastionado","Entornos Microsoft"]},
+  {ic:"🛡️", t:"Ciberseguridad", d:"Auditorías de red, análisis de vulnerabilidades y hacking ético.",
+   b:["Análisis de vulnerabilidades y auditorías de red.","Interceptación y análisis de tráfico: laboratorio aislado con ARP Spoofing entre máquinas virtuales.","Fundamentos de hacking ético y defensa perimetral.","Formación complementaria: Introduction to Cybersecurity (Cisco) y Ciberseguridad y Hacking Ético (BIG school)."],
+   tech:["Kali Linux","Bettercap","Wireshark","VirtualBox"],
+   rel:[["Ver el laboratorio MitM","#proyectos"],["Ver certificados","#certificados"]]},
+  {ic:"🗄️", t:"Administración de sistemas gestores de bases de datos", d:"Bases de datos relacionales y PL/SQL avanzado.",
+   b:["Creación y administración de bases de datos relacionales.","Desarrollo de consultas complejas y optimización.","Triggers y procedimientos almacenados con PL/SQL avanzado.","Uso de MySQL en el sistema de gestión logística contenerizado."],
+   tech:["PL/SQL","MySQL","Triggers","Procedimientos almacenados"],
+   rel:[["Ver el sistema de gestión logística","#proyectos"]]},
+  {ic:"📦", t:"Implantación de aplicaciones web", d:"Servidores web, HTML, JavaScript y Realidad Virtual.",
+   b:["Despliegue y configuración de servidores web.","Desarrollo de interfaces y estructuración de datos con HTML y JavaScript.","Exploración de integraciones con Realidad Virtual."],
+   tech:["HTML","JavaScript","Servidores web","Realidad Virtual"]},
+  {ic:"♻️", t:"Digitalización y sostenibilidad", d:"Transformación digital con criterios de sostenibilidad.",
+   b:["Aplicación de criterios de sostenibilidad y transformación digital a los sectores productivos.","Optimización de recursos y mejora de la eficiencia tecnológica en infraestructuras IT."],
+   tech:["Transformación digital","Sostenibilidad","Eficiencia IT"]}
+];
+const PROJECTS = [
+  {t:"Auditoría y evasión: laboratorio MitM", d:"Entorno de red interno aislado para simular ataque y defensa. Pruebas de concepto de ARP Spoofing para interceptar y analizar tráfico entre máquinas virtuales.", tech:["Kali Linux","Windows 10","VirtualBox","Bettercap","Wireshark"]},
+  {t:"Sistema de gestión logística contenerizado", d:"Solución para administrar la distribución logística, con front-end gráfico a medida y back-end de base de datos relacional aislado para garantizar la portabilidad.", tech:["Python (Tkinter)","Docker","MySQL","Git"]},
+  {t:"Simulaciones de red corporativa", d:"Diseño e implementación de redes empresariales completas con segmentación del tráfico, alta disponibilidad y enrutamiento dinámico entre varias sucursales.", tech:["Cisco Packet Tracer","IPv4/IPv6","OSPF","EIGRP","VLANs"]},
+  {t:"Robot móvil autónomo", d:"Programación y montaje de un robot que navega y evita obstáculos de forma autónoma procesando señales de sensores.", tech:["Arduino Uno","C++","Sensores de proximidad"]}
+  /* Con enlace: {t:"...", d:"...", tech:[...], url:"https://github.com/abl211207/..."} */
+];
+const C="certificados/", CN="Cisco Networking Academy", BS="BIG school";
+const CERTS = [
+  {t:"Networking Basics", by:CN, cat:"redes", date:"2026-10-06", d:"Comunicación en redes Ethernet, direccionamiento IPv4 e IPv6, cómo conectan los routers las redes y configuración de un router inalámbrico seguro.", pdfs:[["Inglés",C+"cisco-networking-basics-en.pdf"],["Español",C+"cisco-networking-basics-es.pdf"]], img:C+"img/cisco-networking-basics-en.jpg"},
+  {t:"Exploring Internet of Things with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Redes y dispositivos de Internet de las cosas simulados con Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-iot-packet-tracer.pdf"]], img:C+"img/cisco-iot-packet-tracer.jpg"},
+  {t:"Exploring Networking with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Diseño y simulación de redes con Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-exploring-networking-packet-tracer.pdf"]], img:C+"img/cisco-exploring-networking-packet-tracer.jpg"},
+  {t:"Getting Started with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Primeros pasos con el simulador de redes Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-getting-started-packet-tracer.pdf"]], img:C+"img/cisco-getting-started-packet-tracer.jpg"},
+  {t:"Marketing digital con inteligencia artificial", by:BS, cat:"marketing", date:"2026-10-01", d:"Estrategia, definición de públicos y mensajes, selección de canales y aplicación de la IA al marketing.", pdfs:[["PDF",C+"big-marketing-digital-ia.pdf"]], img:C+"img/big-marketing-digital-ia.jpg"},
+  {t:"Introduction to Cybersecurity", by:CN, cat:"ciberseguridad", date:"2026-09-23", d:"Amenazas, ataques y vulnerabilidades más comunes, y cómo protegerse y proteger a una organización.", pdfs:[["PDF",C+"cisco-intro-cybersecurity.pdf"]], img:C+"img/cisco-intro-cybersecurity.jpg"},
+  {t:"Introducción a la IA moderna", by:CN, cat:"ia", date:"2026-09-23", d:"Curso introductorio sobre inteligencia artificial moderna.", pdfs:[["PDF",C+"cisco-intro-modern-ai.pdf"]], img:C+"img/cisco-intro-modern-ai.jpg"},
+  {t:"Curso de iniciación a la IA", by:BS, cat:"ia", date:"2026-09-05", h:"6 horas", d:"Curso de IA gratis: el nuevo ChatGPT.", pdfs:[["PDF",C+"big-iniciacion-ia.pdf"]], img:C+"img/big-iniciacion-ia.jpg"},
+  {t:"Curso de IA: de 0 a agentes", by:BS, cat:"ia", date:"2026-06-01", h:"6 horas", d:"Cómo dominar la IA, ganar competitividad y aprender cómo trabajan los agentes.", pdfs:[["PDF",C+"big-ia-de-0-a-agentes.pdf"]], img:C+"img/big-ia-de-0-a-agentes.jpg"},
+  {t:"SEO para IA y Google", by:BS, cat:"marketing", date:"2026-05-01", h:"6 horas", d:"Tráfico cualificado, negocio y visibilidad en la era de la IA.", pdfs:[["PDF",C+"big-seo-ia-google.pdf"]], img:C+"img/big-seo-ia-google.jpg"},
+  {t:"Desarrollo con IA: de 0 a producción", by:BS, cat:"ia", date:"2026-04-19", h:"6 horas", d:"Jornadas formativas de desarrollo con IA, de cero a producción.", pdfs:[["PDF",C+"big-desarrollo-con-ia.pdf"]], img:C+"img/big-desarrollo-con-ia.jpg"},
+  {t:"Ciberseguridad y hacking ético", by:BS, cat:"ciberseguridad", date:"2026-04-10", h:"6 horas", d:"Técnicas de detección de vulnerabilidades y defensa digital.", pdfs:[["PDF",C+"big-ciberseguridad-hacking-etico.pdf"]], img:C+"img/big-ciberseguridad-hacking-etico.jpg"}
+  /* Nuevo: {t:"...", by:"...", cat:"redes|ciberseguridad|ia|marketing", date:"AAAA-MM-DD", d:"...", pdfs:[["PDF","certificados/archivo.pdf"]], img:"certificados/img/archivo.jpg"} */
+];
+/* ============================================================================ */
+const el=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+el("skills").innerHTML=SKILLS.map((k,n)=>`<button type="button" class="skill" data-s="${n}"><span class="ic" aria-hidden="true">${k.ic}</span><span class="st">${esc(k.t)}</span><p>${esc(k.d)}</p><span class="more">Ver qué he trabajado</span></button>`).join("");
+el("projects").innerHTML=PROJECTS.map(p=>`<article class="proj"><div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>${p.url?`<a class="more" href="${esc(p.url)}" target="_blank" rel="noopener">Ver proyecto</a>`:""}</div><ul class="chips">${p.tech.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+const CATS=[["todos","Todos"],["redes","Redes"],["ciberseguridad","Ciberseguridad"],["ia","IA"],["marketing","Marketing y SEO"]];
+const fmt=d=>new Date(d+"T12:00:00").toLocaleDateString("es-ES",{month:"long",year:"numeric"});
+CERTS.sort((a,b)=>b.date.localeCompare(a.date));
+el("ccount").textContent=CERTS.length+" cursos completados";
+let cat="todos";
+function drawCerts(){
+  el("filters").innerHTML=CATS.map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${k===cat}">${l}</button>`).join("");
+  const list=CERTS.map((c,i)=>[c,i]).filter(([c])=>cat==="todos"||c.cat===cat);
+  el("certs").innerHTML=list.length?list.map(([c,i])=>`<button type="button" class="cert" data-i="${i}"><img src="${esc(c.img)}" alt="Certificado: ${esc(c.t)}" loading="lazy"><div class="c"><h4>${esc(c.t)}</h4><span>${esc(c.by)}</span><span>${fmt(c.date)}${c.h?", "+esc(c.h):""}</span></div></button>`).join(""):`<div class="empty">Aún no hay certificados en esta categoría.</div>`;
+}
+el("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(b){cat=b.dataset.k;drawCerts()}});
+el("certs").addEventListener("click",e=>{
+  const b=e.target.closest(".cert");if(!b)return;
+  const c=CERTS[b.dataset.i];
+  el("dlgbody").innerHTML=`<h3>${esc(c.t)}</h3><p>${esc(c.by)}, ${fmt(c.date)}${c.h?", "+esc(c.h):""}</p><p>${esc(c.d)}</p><img src="${esc(c.img)}" alt="Certificado: ${esc(c.t)}"><div class="row">${c.pdfs.map(([l,u])=>`<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">Abrir PDF${c.pdfs.length>1?" ("+esc(l)+")":""}</a>`).join("")}<button type="button" class="btn ghost" id="dclose">Cerrar</button></div>`;
+  el("dlg").showModal();
+  el("dclose").focus();
+});
+el("dlg").addEventListener("click",e=>{if(e.target.id==="dlg"||e.target.id==="dclose"||e.target.closest("a[href^='#']"))el("dlg").close()});
+el("skills").addEventListener("click",e=>{
+  const b=e.target.closest(".skill");if(!b)return;
+  const k=SKILLS[b.dataset.s];
+  el("dlgbody").innerHTML=`<h3>${esc(k.t)}</h3><p>${esc(k.d)}</p><h4>Qué he trabajado</h4><ul class="bul">${k.b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><ul class="chips">${k.tech.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="row">${(k.rel||[]).map(([l,u])=>`<a class="btn primary" href="${esc(u)}">${esc(l)}</a>`).join("")}<button type="button" class="btn ghost" id="dclose">Cerrar</button></div>`;
+  el("dlg").showModal();
+  el("dclose").focus();
+});
+drawCerts();
+el("y").textContent=new Date().getFullYear();
+const root=document.documentElement;
+try{const s=localStorage.getItem("theme");if(s)root.dataset.theme=s}catch(e){}
+el("theme").addEventListener("click",()=>{
+  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme=dark?"light":"dark";
+  try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}
+});
+</script>
+</body>
+</html>
