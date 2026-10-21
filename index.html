@@ -91,9 +91,6 @@ h3{font:600 1.2rem var(--head);margin:0 0 6px}
 .edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
 .edu span{color:var(--muted);font-size:.95rem}
-.badges{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 28px;padding:0;list-style:none}
-.badges img{width:84px;height:84px;display:block}
-.badges p{margin:0;color:var(--muted);font-size:.95rem;max-width:30ch}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
 .filters button{font:inherit;font-size:.92rem;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
@@ -175,7 +172,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
       <li><b>Ahora</b>2.º de ASIR</li>
       <li><b>Enfoque</b>Ciberseguridad, hacking ético y redes Cisco</li>
       <li><b>Certificados</b><span id="ccount"></span></li>
-      <li><b>Idiomas</b>Español nativo, inglés B2 (British Council)</li>
+      <li><b>Idiomas</b>Español nativo, inglés A2</li>
     </ul>
   </div>
 </div></section>
@@ -222,29 +219,23 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
   <div class="studies">
     <article class="study">
       <h3>Técnico Superior en ASIR</h3>
-      <span class="where">Digitech</span>
+      <span class="where">Instituto Digitech FP · 2025–2027</span>
       <span class="s">Administración de Sistemas Informáticos en Red · Grado Superior · En curso (2.º)</span>
     </article>
     <article class="study">
       <h3>Técnico en SMR</h3>
-      <span class="where">MEDAC</span>
-      <span class="s">Sistemas Microinformáticos y Redes · Grado Medio · 2 años</span>
+      <span class="where">MEDAC · 2023–2025</span>
+      <span class="s">Sistemas Microinformáticos y Redes · Grado Medio</span>
     </article>
   </div>
   <div class="edu">
-    <div><h3>Inglés B2</h3><span>British Council</span></div>
+    <div><h3>Inglés</h3><span>Nivel A2</span></div>
     <div><h3>Permiso de conducir B</h3><span>Vigente</span></div>
   </div>
 </div></section>
 
 <section id="certificados"><div class="wrap">
   <h2>Certificados</h2>
-  <ul class="badges">
-    <li><img src="certificados/img/badge-networking-basics.png" alt="Insignia verificada de Cisco: Networking Basics" width="84" height="84" onerror="this.parentElement.remove()"></li>
-    <li><img src="certificados/img/badge-cybersecurity.png" alt="Insignia verificada de Cisco: Introduction to Cybersecurity" width="84" height="84" onerror="this.parentElement.remove()"></li>
-    <li><img src="certificados/img/badge-modern-ai.png" alt="Insignia verificada de Cisco: Introduction to Modern AI" width="84" height="84" onerror="this.parentElement.remove()"></li>
-    <li><p>Certificados de Cisco Networking Academy y BIG school</p></li>
-  </ul>
   <div class="filters" id="filters" role="group" aria-label="Filtrar certificados"></div>
   <div class="certs" id="certs"></div>
   <dialog id="dlg" aria-label="Detalle del certificado"><div class="dlg" id="dlgbody"></div></dialog>
