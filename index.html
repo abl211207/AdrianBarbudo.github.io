@@ -84,7 +84,11 @@ h3{font:600 1.2rem var(--head);margin:0 0 6px}
 .job time{color:var(--muted);font-size:.95rem}
 .job ul{margin:10px 0 0;padding-left:20px;color:var(--muted)}
 .job li{margin-bottom:6px}
-.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:36px}
+.studies{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:20px}
+.study{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:20px}
+.study .where{display:block;color:var(--accent);font-weight:600;margin-bottom:4px}
+.study .s{display:block;color:var(--muted);font-size:.95rem}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
 .edu span{color:var(--muted);font-size:.95rem}
 .badges{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 28px;padding:0;list-style:none}
@@ -131,7 +135,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
   <a class="brand" href="#inicio">Adrián Barbudo López</a>
   <nav aria-label="Principal">
     <a href="#sobre-mi">Sobre mí</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a>
-    <a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a>
+    <a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#certificados">Certificados</a><a href="#contacto">Contacto</a>
     <button id="theme" type="button" aria-label="Cambiar tema">Tema</button>
   </nav>
 </div></header>
@@ -214,14 +218,27 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
 </div></section>
 
 <section id="formacion"><div class="wrap">
-  <h2>Formación y certificaciones</h2>
+  <h2>Formación</h2>
+  <div class="studies">
+    <article class="study">
+      <h3>Técnico Superior en ASIR</h3>
+      <span class="where">Digitech</span>
+      <span class="s">Administración de Sistemas Informáticos en Red · Grado Superior · En curso (2.º)</span>
+    </article>
+    <article class="study">
+      <h3>Técnico en SMR</h3>
+      <span class="where">MEDAC</span>
+      <span class="s">Sistemas Microinformáticos y Redes · Grado Medio · 2 años</span>
+    </article>
+  </div>
   <div class="edu">
-    <div><h3>Técnico Superior en ASIR</h3><span>En curso</span></div>
-    <div><h3>Técnico en SMR</h3><span>Sistemas Microinformáticos y Redes</span></div>
     <div><h3>Inglés B2</h3><span>British Council</span></div>
     <div><h3>Permiso de conducir B</h3><span>Vigente</span></div>
   </div>
-  <h3 id="certificados" style="margin-bottom:14px">Certificados</h3>
+</div></section>
+
+<section id="certificados"><div class="wrap">
+  <h2>Certificados</h2>
   <ul class="badges">
     <li><img src="certificados/img/badge-networking-basics.png" alt="Insignia verificada de Cisco: Networking Basics" width="84" height="84" onerror="this.parentElement.remove()"></li>
     <li><img src="certificados/img/badge-cybersecurity.png" alt="Insignia verificada de Cisco: Introduction to Cybersecurity" width="84" height="84" onerror="this.parentElement.remove()"></li>
