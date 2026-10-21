@@ -18,14 +18,10 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
+  :root{
     --bg:#0e1720; --surface:#16232f; --ink:#e6edf3; --muted:#9bb0c0; --line:#2a3b4a;
     --accent:#6f95ff; --accent-ink:#0e1720; --hl:#f2b705; --node:#e6edf3; color-scheme:dark;
   }
-}
-:root[data-theme="dark"]{
-  --bg:#0e1720; --surface:#16232f; --ink:#e6edf3; --muted:#9bb0c0; --line:#2a3b4a;
-  --accent:#6f95ff; --accent-ink:#0e1720; --hl:#f2b705; --node:#e6edf3; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -40,7 +36,6 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav{display:flex;gap:18px;align-items:center;overflow-x:auto}
 nav a{color:var(--muted);text-decoration:none;font-size:.95rem;white-space:nowrap}
 nav a:hover{color:var(--ink)}
-#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:.9rem}
 .hero{padding:72px 0 56px}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font:800 clamp(2.6rem,6vw,4.6rem)/1 var(--head);letter-spacing:-.02em;margin:0 0 20px}
@@ -79,6 +74,7 @@ h3{font:600 1.2rem var(--head);margin:0 0 6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;align-content:start;margin:0;padding:0;list-style:none}
 .chips li{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.86rem;background:var(--bg)}
 .proj a.more{display:inline-block;margin-top:10px;font-weight:600}
+.subh{margin:44px 0 16px}
 .timeline{display:grid;gap:22px}
 .job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding-left:18px;border-left:4px solid var(--accent)}
 .job time{color:var(--muted);font-size:.95rem}
@@ -133,7 +129,6 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
   <nav aria-label="Principal">
     <a href="#sobre-mi">Sobre mí</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a>
     <a href="#experiencia">Experiencia</a><a href="#formacion">Formación</a><a href="#certificados">Certificados</a><a href="#contacto">Contacto</a>
-    <button id="theme" type="button" aria-label="Cambiar tema">Tema</button>
   </nav>
 </div></header>
 
@@ -172,7 +167,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
       <li><b>Ahora</b>2.º de ASIR</li>
       <li><b>Enfoque</b>Ciberseguridad, hacking ético y redes Cisco</li>
       <li><b>Certificados</b><span id="ccount"></span></li>
-      <li><b>Idiomas</b>Español nativo, inglés A2</li>
+      <li><b>Idiomas</b>Español nativo, inglés B1</li>
     </ul>
   </div>
 </div></section>
@@ -185,6 +180,8 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
 <section id="proyectos"><div class="wrap">
   <h2>Proyectos destacados</h2>
   <div class="projects" id="projects"></div>
+  <h3 class="subh">Prácticas de laboratorio</h3>
+  <div class="projects" id="practicas"></div>
 </div></section>
 
 <section id="experiencia"><div class="wrap">
@@ -229,7 +226,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
     </article>
   </div>
   <div class="edu">
-    <div><h3>Inglés</h3><span>Nivel A2</span></div>
+    <div><h3>Inglés</h3><span>Nivel B1</span></div>
     <div><h3>Permiso de conducir B</h3><span>Vigente</span></div>
   </div>
 </div></section>
@@ -284,8 +281,14 @@ const SKILLS = [
 const PROJECTS = [
   {t:"Auditoría y evasión: laboratorio MitM", d:"Entorno de red interno aislado para simular ataque y defensa. Pruebas de concepto de ARP Spoofing para interceptar y analizar tráfico entre máquinas virtuales.", tech:["Kali Linux","Windows 10","VirtualBox","Bettercap","Wireshark"]},
   {t:"Sistema de gestión logística contenerizado", d:"Solución para administrar la distribución logística, con front-end gráfico a medida y back-end de base de datos relacional aislado para garantizar la portabilidad.", tech:["Python (Tkinter)","Docker","MySQL","Git"]},
+  {t:"Gestor de archivos y panel de control", d:"Aplicación de escritorio en Python que combina un gestor de archivos (buscar, crear carpetas, renombrar, mover y eliminar) con un panel de control del sistema que muestra en tiempo real el uso de CPU y RAM, el disco libre, los núcleos y la batería. Proyecto final de Fundamentos de Hardware, realizado en equipo.", tech:["Python","Tkinter","psutil"], url:"proyectos/proyecto-final-fundamentos-de-hardware.pdf", link:"Ver proyecto (PDF)"},
   {t:"Simulaciones de red corporativa", d:"Diseño e implementación de redes empresariales completas con segmentación del tráfico, alta disponibilidad y enrutamiento dinámico entre varias sucursales.", tech:["Cisco Packet Tracer","IPv4/IPv6","OSPF","EIGRP","VLANs"]},
   {t:"Robot móvil autónomo", d:"Programación y montaje de un robot que navega y evita obstáculos de forma autónoma procesando señales de sensores.", tech:["Arduino Uno","C++","Sensores de proximidad"]}
+];
+/* Prácticas: sube el archivo a la carpeta practicas/ y añade aquí un objeto nuevo */
+const PRACTICAS = [
+  {t:"Enrutamiento entre VLAN", d:"Práctica de Cisco Packet Tracer sobre segmentación de la red en VLANs y comunicación entre ellas mediante enrutamiento entre VLAN.", tech:["Cisco Packet Tracer","VLANs","Inter-VLAN routing"], url:"practicas/enrutamiento-entre-vlan.pkt", link:"Descargar práctica (.pkt)"},
+  {t:"Direccionamiento IPv6", d:"Práctica de Cisco Packet Tracer de configuración de direccionamiento IPv6 en una red simulada.", tech:["Cisco Packet Tracer","IPv6"], url:"practicas/ipv6-practica.pkt", link:"Descargar práctica (.pkt)"}
 ];
 
 /* ---- Certificados ---- */
@@ -326,7 +329,9 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const url=u=>/^https?:/.test(u)?u:encodeURI(u);
 const IMGERR=`onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'📄'}))"`;
 el("skills").innerHTML=SKILLS.map((k,n)=>`<button type="button" class="skill" data-s="${n}"><span class="ic" aria-hidden="true">${k.ic}</span><span class="st">${esc(k.t)}</span><p>${esc(k.d)}</p><span class="more">Ver qué he trabajado</span></button>`).join("");
-el("projects").innerHTML=PROJECTS.map(p=>`<article class="proj"><div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>${p.url?`<a class="more" href="${esc(p.url)}" target="_blank" rel="noopener">Ver proyecto</a>`:""}</div><ul class="chips">${p.tech.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+const card=p=>`<article class="proj"><div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>${p.url?`<a class="more" href="${esc(p.url)}" target="_blank" rel="noopener"${/\.pkt$/.test(p.url)?" download":""}>${esc(p.link||"Ver proyecto")}</a>`:""}</div><ul class="chips">${p.tech.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`;
+el("projects").innerHTML=PROJECTS.map(card).join("");
+el("practicas").innerHTML=PRACTICAS.map(card).join("");
 const CATS=[["todos","Todos"],["redes","Redes"],["ciberseguridad","Ciberseguridad"],["ia","IA"],["marketing","Marketing y SEO"]];
 const fmt=d=>new Date(d+"T12:00:00").toLocaleDateString("es-ES",{month:"long",year:"numeric"});
 CERTS.sort((a,b)=>b.date.localeCompare(a.date));
@@ -356,13 +361,6 @@ el("skills").addEventListener("click",e=>{
 drawCerts();
 
 el("y").textContent=new Date().getFullYear();
-const root=document.documentElement;
-try{const s=localStorage.getItem("theme");if(s)root.dataset.theme=s}catch(e){}
-el("theme").addEventListener("click",()=>{
-  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme=dark?"light":"dark";
-  try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}
-});
 </script>
 </body>
 </html>
