@@ -97,6 +97,7 @@ h3{font:600 1.2rem var(--head);margin:0 0 6px}
 .cert{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit;overflow:hidden;display:flex;flex-direction:column}
 .cert:hover{border-color:var(--accent)}
 .cert img{width:100%;aspect-ratio:4/3;object-fit:contain;display:block;border-bottom:1px solid var(--line);background:var(--bg)}
+.ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:3rem;border-bottom:1px solid var(--line);background:var(--bg)}
 .cert .c{padding:14px 16px}
 .cert h4{margin:0 0 4px;font:600 1rem/1.3 var(--head)}
 .cert span{color:var(--muted);font-size:.88rem;display:block}
@@ -109,7 +110,7 @@ dialog::backdrop{background:rgba(8,14,20,.65)}
 .dlg ul.bul li{margin-bottom:6px}
 .dlg .chips{margin:14px 0}
 .dlg h4{margin:16px 0 0;font:600 1rem var(--head)}
-.dlg .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.dlg .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .dlg .row button{font:inherit;cursor:pointer;background:none}
 .empty{border:2px dashed var(--line);border-radius:12px;padding:22px;color:var(--muted);grid-column:1/-1}
 .contact p{max-width:58ch;color:var(--muted)}
@@ -222,10 +223,10 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px sol
   </div>
   <h3 id="certificados" style="margin-bottom:14px">Certificados</h3>
   <ul class="badges">
-    <li><img src="certificados/img/badge-networking-basics.png" alt="Insignia verificada de Cisco: Networking Basics" width="84" height="84"></li>
-    <li><img src="certificados/img/badge-cybersecurity.png" alt="Insignia verificada de Cisco: Introduction to Cybersecurity" width="84" height="84"></li>
-    <li><img src="certificados/img/badge-modern-ai.png" alt="Insignia verificada de Cisco: Introduction to Modern AI" width="84" height="84"></li>
-    <li><p>Insignias verificadas de Cisco Networking Academy</p></li>
+    <li><img src="certificados/img/badge-networking-basics.png" alt="Insignia verificada de Cisco: Networking Basics" width="84" height="84" onerror="this.parentElement.remove()"></li>
+    <li><img src="certificados/img/badge-cybersecurity.png" alt="Insignia verificada de Cisco: Introduction to Cybersecurity" width="84" height="84" onerror="this.parentElement.remove()"></li>
+    <li><img src="certificados/img/badge-modern-ai.png" alt="Insignia verificada de Cisco: Introduction to Modern AI" width="84" height="84" onerror="this.parentElement.remove()"></li>
+    <li><p>Certificados de Cisco Networking Academy y BIG school</p></li>
   </ul>
   <div class="filters" id="filters" role="group" aria-label="Filtrar certificados"></div>
   <div class="certs" id="certs"></div>
@@ -278,25 +279,44 @@ const PROJECTS = [
   {t:"Simulaciones de red corporativa", d:"Diseño e implementación de redes empresariales completas con segmentación del tráfico, alta disponibilidad y enrutamiento dinámico entre varias sucursales.", tech:["Cisco Packet Tracer","IPv4/IPv6","OSPF","EIGRP","VLANs"]},
   {t:"Robot móvil autónomo", d:"Programación y montaje de un robot que navega y evita obstáculos de forma autónoma procesando señales de sensores.", tech:["Arduino Uno","C++","Sensores de proximidad"]}
 ];
+
+/* ---- Certificados ---- */
 const C="certificados/", CN="Cisco Networking Academy", BS="BIG school";
+/* PDFs de BIG school (código del archivo en el repo -> curso) */
+const BIG={
+  marketing:"dzkhnkum",    // Marketing digital con IA
+  hacking:"gslfbx6y",      // Ciberseguridad y hacking ético
+  desarrollo:"kk91ungz",   // Desarrollo con IA
+  seo:"olebvvw6",          // SEO para IA y Google
+  iniciacion:"qrjn34xd",   // Iniciación a la IA
+  agentes:"40f3yk8d"       // IA: de 0 a agentes
+};
+const bigPdf=k=>[["PDF",C+"Certificado-Adrian-Barbudo-Lopez-"+BIG[k]+".pdf"]];
 const CERTS = [
-  {t:"Networking Basics", by:CN, cat:"redes", date:"2026-10-06", d:"Comunicación en redes Ethernet, direccionamiento IPv4 e IPv6, cómo conectan los routers las redes y configuración de un router inalámbrico seguro.", pdfs:[["Inglés",C+"cisco-networking-basics-en.pdf"],["Español",C+"cisco-networking-basics-es.pdf"]], img:C+"img/cisco-networking-basics-en.jpg"},
-  {t:"Exploring Internet of Things with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Redes y dispositivos de Internet de las cosas simulados con Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-iot-packet-tracer.pdf"]], img:C+"img/cisco-iot-packet-tracer.jpg"},
-  {t:"Exploring Networking with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Diseño y simulación de redes con Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-exploring-networking-packet-tracer.pdf"]], img:C+"img/cisco-exploring-networking-packet-tracer.jpg"},
-  {t:"Getting Started with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Primeros pasos con el simulador de redes Cisco Packet Tracer.", pdfs:[["PDF",C+"cisco-getting-started-packet-tracer.pdf"]], img:C+"img/cisco-getting-started-packet-tracer.jpg"},
-  {t:"Marketing digital con inteligencia artificial", by:BS, cat:"marketing", date:"2026-10-01", d:"Estrategia, definición de públicos y mensajes, selección de canales y aplicación de la IA al marketing.", pdfs:[["PDF",C+"big-marketing-digital-ia.pdf"]], img:C+"img/big-marketing-digital-ia.jpg"},
-  {t:"Introduction to Cybersecurity", by:CN, cat:"ciberseguridad", date:"2026-09-23", d:"Amenazas, ataques y vulnerabilidades más comunes, y cómo protegerse y proteger a una organización.", pdfs:[["PDF",C+"cisco-intro-cybersecurity.pdf"]], img:C+"img/cisco-intro-cybersecurity.jpg"},
-  {t:"Introducción a la IA moderna", by:CN, cat:"ia", date:"2026-09-23", d:"Curso introductorio sobre inteligencia artificial moderna.", pdfs:[["PDF",C+"cisco-intro-modern-ai.pdf"]], img:C+"img/cisco-intro-modern-ai.jpg"},
-  {t:"Curso de iniciación a la IA", by:BS, cat:"ia", date:"2026-09-05", h:"6 horas", d:"Curso de IA gratis: el nuevo ChatGPT.", pdfs:[["PDF",C+"big-iniciacion-ia.pdf"]], img:C+"img/big-iniciacion-ia.jpg"},
-  {t:"Curso de IA: de 0 a agentes", by:BS, cat:"ia", date:"2026-06-01", h:"6 horas", d:"Cómo dominar la IA, ganar competitividad y aprender cómo trabajan los agentes.", pdfs:[["PDF",C+"big-ia-de-0-a-agentes.pdf"]], img:C+"img/big-ia-de-0-a-agentes.jpg"},
-  {t:"SEO para IA y Google", by:BS, cat:"marketing", date:"2026-05-01", h:"6 horas", d:"Tráfico cualificado, negocio y visibilidad en la era de la IA.", pdfs:[["PDF",C+"big-seo-ia-google.pdf"]], img:C+"img/big-seo-ia-google.jpg"},
-  {t:"Desarrollo con IA: de 0 a producción", by:BS, cat:"ia", date:"2026-04-19", h:"6 horas", d:"Jornadas formativas de desarrollo con IA, de cero a producción.", pdfs:[["PDF",C+"big-desarrollo-con-ia.pdf"]], img:C+"img/big-desarrollo-con-ia.jpg"},
-  {t:"Ciberseguridad y hacking ético", by:BS, cat:"ciberseguridad", date:"2026-04-10", h:"6 horas", d:"Técnicas de detección de vulnerabilidades y defensa digital.", pdfs:[["PDF",C+"big-ciberseguridad-hacking-etico.pdf"]], img:C+"img/big-ciberseguridad-hacking-etico.jpg"},
-  {t:"Nuevo Curso BIG School", by:BS, cat:"ciberseguridad", date:"2026-10-20", d:"Certificado de BIG School.", pdfs:[["PDF",C+"Certificado-Adrian-Barbudo-Lopez-40f3yk8d.pdf"]], img:C+"img/default.jpg"}
+  {t:"Networking Basics", by:CN, cat:"redes", date:"2026-10-06", d:"Comunicación en redes Ethernet, direccionamiento IPv4 e IPv6, cómo conectan los routers las redes y configuración de un router inalámbrico seguro.",
+   pdfs:[["Certificado",C+"Networking_Basics_certificate_zarpabo-digitechfp-com_b8970431-c14c-4747-b263-162ee44af53f.pdf"],["Versión actualizada",C+"NetworkingBasicsUpdate20261007-20-rzwngo.pdf"]], img:C+"img/cisco-networking-basics-en.jpg"},
+  {t:"Exploring Internet of Things with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Redes y dispositivos de Internet de las cosas simulados con Cisco Packet Tracer.",
+   pdfs:[["PDF",C+"Exploring_IoT_with_Cisco_Packet_Tracer_certificate_zarpabo-digitechfp-com_855cba53-8e93-43e8-bcaa-0ae4b64fd2b2.pdf"]], img:C+"img/cisco-iot-packet-tracer.jpg"},
+  {t:"Exploring Networking with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Diseño y simulación de redes con Cisco Packet Tracer.",
+   pdfs:[["PDF",C+"Exploring_Networking_with_Cisco_Packet_Tracer_certificate_zarpabo-digitechfp-com_e78d8cf7-95c9-4572-b70f-5e2850188537.pdf"]], img:C+"img/cisco-exploring-networking-packet-tracer.jpg"},
+  {t:"Getting Started with Cisco Packet Tracer", by:CN, cat:"redes", date:"2026-10-02", d:"Primeros pasos con el simulador de redes Cisco Packet Tracer.",
+   pdfs:[["PDF",C+"Getting_Started_with_Cisco_Packet_Tracer_certificate_zarpabo-digitechfp-com_4d1375ba-6ea1-4560-85cb-c3d920a12526.pdf"]], img:C+"img/cisco-getting-started-packet-tracer.jpg"},
+  {t:"Marketing digital con inteligencia artificial", by:BS, cat:"marketing", date:"2026-10-01", d:"Estrategia, definición de públicos y mensajes, selección de canales y aplicación de la IA al marketing.", pdfs:bigPdf("marketing"), img:C+"img/big-marketing-digital-ia.jpg"},
+  {t:"Introduction to Cybersecurity", by:CN, cat:"ciberseguridad", date:"2026-09-23", d:"Amenazas, ataques y vulnerabilidades más comunes, y cómo protegerse y proteger a una organización.",
+   pdfs:[["PDF",C+"I2CSUpdate20260923-20-s9sxkh.pdf"]], img:C+"img/cisco-intro-cybersecurity.jpg"},
+  {t:"Introducción a la IA moderna", by:CN, cat:"ia", date:"2026-09-23", d:"Curso introductorio sobre inteligencia artificial moderna.",
+   pdfs:[["PDF",C+"Introducción IA/Introduction_to_Modern_AI_certificate_zarpabo-digitechfp-com_71d4225e-132f-4a1f-89ff-6a34a0a8bcd7.pdf"]], img:C+"img/cisco-intro-modern-ai.jpg"},
+  {t:"Curso de iniciación a la IA", by:BS, cat:"ia", date:"2026-09-05", h:"6 horas", d:"Curso de IA gratis: el nuevo ChatGPT.", pdfs:bigPdf("iniciacion"), img:C+"img/big-iniciacion-ia.jpg"},
+  {t:"Curso de IA: de 0 a agentes", by:BS, cat:"ia", date:"2026-06-01", h:"6 horas", d:"Cómo dominar la IA, ganar competitividad y aprender cómo trabajan los agentes.", pdfs:bigPdf("agentes"), img:C+"img/big-ia-de-0-a-agentes.jpg"},
+  {t:"SEO para IA y Google", by:BS, cat:"marketing", date:"2026-05-01", h:"6 horas", d:"Tráfico cualificado, negocio y visibilidad en la era de la IA.", pdfs:bigPdf("seo"), img:C+"img/big-seo-ia-google.jpg"},
+  {t:"Desarrollo con IA: de 0 a producción", by:BS, cat:"ia", date:"2026-04-19", h:"6 horas", d:"Jornadas formativas de desarrollo con IA, de cero a producción.", pdfs:bigPdf("desarrollo"), img:C+"img/big-desarrollo-con-ia.jpg"},
+  {t:"Ciberseguridad y hacking ético", by:BS, cat:"ciberseguridad", date:"2026-04-10", h:"6 horas", d:"Técnicas de detección de vulnerabilidades y defensa digital.", pdfs:bigPdf("hacking"), img:C+"img/big-ciberseguridad-hacking-etico.jpg"}
 ];
 /* ============================================================================ */
 const el=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const url=u=>/^https?:/.test(u)?u:encodeURI(u);
+const IMGERR=`onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'📄'}))"`;
 el("skills").innerHTML=SKILLS.map((k,n)=>`<button type="button" class="skill" data-s="${n}"><span class="ic" aria-hidden="true">${k.ic}</span><span class="st">${esc(k.t)}</span><p>${esc(k.d)}</p><span class="more">Ver qué he trabajado</span></button>`).join("");
 el("projects").innerHTML=PROJECTS.map(p=>`<article class="proj"><div><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p>${p.url?`<a class="more" href="${esc(p.url)}" target="_blank" rel="noopener">Ver proyecto</a>`:""}</div><ul class="chips">${p.tech.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
 const CATS=[["todos","Todos"],["redes","Redes"],["ciberseguridad","Ciberseguridad"],["ia","IA"],["marketing","Marketing y SEO"]];
@@ -307,13 +327,13 @@ let cat="todos";
 function drawCerts(){
   el("filters").innerHTML=CATS.map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${k===cat}">${l}</button>`).join("");
   const list=CERTS.map((c,i)=>[c,i]).filter(([c])=>cat==="todos"||c.cat===cat);
-  el("certs").innerHTML=list.length?list.map(([c,i])=>`<button type="button" class="cert" data-i="${i}"><img src="${esc(c.img)}" alt="Certificado: ${esc(c.t)}" loading="lazy"><div class="c"><h4>${esc(c.t)}</h4><span>${esc(c.by)}</span><span>${fmt(c.date)}${c.h?", "+esc(c.h):""}</span></div></button>`).join(""):`<div class="empty">Aún no hay certificados en esta categoría.</div>`;
+  el("certs").innerHTML=list.length?list.map(([c,i])=>`<button type="button" class="cert" data-i="${i}"><img src="${esc(url(c.img))}" alt="Certificado: ${esc(c.t)}" loading="lazy" ${IMGERR}><div class="c"><h4>${esc(c.t)}</h4><span>${esc(c.by)}</span><span>${fmt(c.date)}${c.h?", "+esc(c.h):""}</span></div></button>`).join(""):`<div class="empty">Aún no hay certificados en esta categoría.</div>`;
 }
 el("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(b){cat=b.dataset.k;drawCerts()}});
 el("certs").addEventListener("click",e=>{
   const b=e.target.closest(".cert");if(!b)return;
   const c=CERTS[b.dataset.i];
-  el("dlgbody").innerHTML=`<h3>${esc(c.t)}</h3><p>${esc(c.by)}, ${fmt(c.date)}${c.h?", "+esc(c.h):""}</p><p>${esc(c.d)}</p><img src="${esc(c.img)}" alt="Certificado: ${esc(c.t)}"><div class="row">${c.pdfs.map(([l,u])=>`<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">Abrir PDF${c.pdfs.length>1?" ("+esc(l)+")":""}</a>`).join("")}<button type="button" class="btn ghost" id="dclose">Cerrar</button></div>`;
+  el("dlgbody").innerHTML=`<h3>${esc(c.t)}</h3><p>${esc(c.by)}, ${fmt(c.date)}${c.h?", "+esc(c.h):""}</p><p>${esc(c.d)}</p><img src="${esc(url(c.img))}" alt="Certificado: ${esc(c.t)}" onerror="this.remove()"><div class="row">${c.pdfs.map(([l,u])=>`<a class="btn primary" href="${esc(url(u))}" target="_blank" rel="noopener">${/^Ver /.test(l)?esc(l):"Abrir PDF"+(c.pdfs.length>1?" ("+esc(l)+")":"")}</a>`).join("")}<button type="button" class="btn ghost" id="dclose">Cerrar</button></div>`;
   el("dlg").showModal();
   el("dclose").focus();
 });
@@ -326,6 +346,7 @@ el("skills").addEventListener("click",e=>{
   el("dclose").focus();
 });
 drawCerts();
+
 el("y").textContent=new Date().getFullYear();
 const root=document.documentElement;
 try{const s=localStorage.getItem("theme");if(s)root.dataset.theme=s}catch(e){}
